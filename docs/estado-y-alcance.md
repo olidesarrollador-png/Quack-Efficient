@@ -1,40 +1,39 @@
-# Estado y alcance
+# Estado y alcance de Quack Efficient
 
-## Lo que incluye esta versión
+## Programa disponible
 
-El starter contiene un paquete Python instalable y una CLI mínima:
+`index.html` es una aplicación local de una sola página. Se abre en el navegador, consulta la API local de Ollama, muestra los modelos de `/api/tags` y envía mensajes a `/api/chat`. El servidor devuelve la versión en `/api/version`. Las conversaciones y peticiones se quedan en el equipo y en Ollama.
 
-- `eq info` presenta la versión, el sistema operativo y el estado experimental.
-- `eq check --runtime ollama` y `eq check --runtime generic` explican que no hay adaptadores disponibles. El comando termina con código 2.
+EQ es una interfaz para Ollama, no un runtime independiente ni un convertidor universal de modelos. Qwen, MiniMax y modelos propios se pueden seleccionar cuando están instalados en Ollama y admiten su API de chat. No todas las variantes, formatos o versiones se han probado. Modelos de otros runtimes o modelos solo de embeddings no son compatibles directamente en esta versión.
 
-La comprobación no se conecta a un runtime. No se incluyen pesos, modelos, benchmarks ni servicios externos.
+## Ajustes que pueden reducir memoria
 
-## Compatibilidad de modelos
+- `num_ctx` limita la longitud de contexto que solicita la inferencia (perfil Ahorro: 2.048; Equilibrado: 4.096).
+- `num_predict` limita el máximo de tokens de salida.
+- `keep_alive: 0` pide a Ollama descargar el modelo de memoria después de responder.
 
-**No hay ningún modelo validado ni compatible a través de EQ en esta versión**, porque todavía no existe un adaptador de inferencia. Esto no determina si un modelo funciona con Ollama, otro runtime o su aplicación original.
+Un contexto menor puede reducir la memoria temporal usada por la caché KV. No cambia ni comprime los pesos del modelo; los requisitos de esos pesos no desaparecen. La RAM real depende del modelo, cuantización, hardware, versión de Ollama y carga. EQ no promete una reducción porcentual o un límite de memoria.
 
-| Familia o runtime | Integración en EQ | Estado |
-| --- | --- | --- |
-| Texto / LLM | No implementada | Sin modelos probados |
-| Imagen | No implementada | Sin modelos probados |
-| Vídeo | No implementada | Sin modelos probados |
-| Ollama | No implementada | El comando `eq check` no se conecta a Ollama |
-| Genérico | No implementada | El comando `eq check` solo muestra un diagnóstico |
+## Matriz de compatibilidad
 
-La tabla no afirma que un modelo sea incompatible: indica que EQ aún no puede evaluarlo. Para registrar una comprobación futura hacen falta el identificador y versión del modelo, formato, runtime y versión, sistema operativo, hardware y resultados de carga, generación, memoria, velocidad y calidad.
+| Integración | Estado |
+| --- | --- |
+| API local Ollama `/api/version` y `/api/tags` | Implementada en la interfaz; requiere servidor Ollama activo. |
+| Chat con un modelo listado por Ollama | Implementado mediante `/api/chat`; el modelo debe admitir chat. |
+| Perfiles `num_ctx` / `num_predict` | Implementados como opciones por petición. |
+| Descargar modelo tras la respuesta | Implementado con `keep_alive: 0`; el siguiente uso tendrá que cargarlo otra vez. |
+| Qwen / MiniMax / modelos propios | Seleccionables si Ollama los tiene instalados y admiten chat; no se certifican todas sus variantes. |
+| Convertir cualquier formato o conectarse a cualquier runtime | No implementado. |
+| Reducción fija de RAM o garantía de que cualquier modelo funcione | No se ofrece ni se puede garantizar. |
 
-## Lo que aún no hace
+## Estado de validación
 
-EQ no modifica pesos, no cuantiza modelos, no optimiza la caché KV, no reduce por sí solo el uso de memoria y no garantiza un límite de 3 GB. Tampoco garantiza compatibilidad o una mejora de calidad, latencia o rendimiento con ningún modelo o sistema.
+El entorno de desarrollo usado para preparar este repositorio no pudo acceder a `localhost:11434` y no pudo ejecutar Python. La interfaz debe verificarse con cada instalación real de Ollama. Para registrar una combinación como probada, anota: modelo/tag y formato, versión de Ollama, sistema operativo, hardware, perfil y contexto, si pudo cargar y responder, RAM/VRAM antes y después, y calidad de la respuesta.
 
-Los nombres `inspect`, `benchmark` y `optimize` describen posibles comandos futuros; no existen en esta versión.
+## Dirección del proyecto
 
-## Dirección prevista
+1. Comprobar compatibilidad de chat en tiempo de conexión cuando Ollama exponga metadatos de capacidades útiles.
+2. Añadir pruebas reproducibles de memoria y respuesta por modelo y hardware.
+3. Evaluar otros runtimes mediante adaptadores explícitos, sin afirmar compatibilidad universal.
+4. Considerar formatos de cuantización solo para las familias que permitan conversión segura y medible.
 
-1. Definir una interfaz estable para adaptadores y detección de capacidades.
-2. Añadir una integración concreta con un runtime y documentar sus versiones compatibles.
-3. Crear benchmarks repetibles para memoria máxima, latencia, rendimiento y calidad.
-4. Añadir perfiles que expongan claramente sus compromisos entre recursos y calidad.
-5. Ampliar a otras familias de modelos y sistemas operativos tras validar cada combinación.
-
-Cada paso requiere implementación y resultados antes de anunciarse como función disponible.
