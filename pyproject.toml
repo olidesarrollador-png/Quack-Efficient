@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quack-efficient"
+version = "0.1.0"
+description = "Experimental cross-platform AI inference efficiency toolkit scaffold"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Quack Labs" }]
+dependencies = []
+
+[project.scripts]
+eq = "eq.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
