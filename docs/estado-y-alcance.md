@@ -1,5 +1,8 @@
 # Estado y alcance de Quack Efficient
 
+> # CONTACTO PARA USO COMERCIAL O EMPRESARIAL
+> **Oli desarrollador:** [olidesarrollador@gmail.com](mailto:olidesarrollador@gmail.com)
+
 ## Programa disponible
 
 `index.html` es una aplicación local de una sola página. Se abre en el navegador, consulta la API local de Ollama, muestra los modelos de `/api/tags` y envía mensajes a `/api/chat`. El servidor devuelve la versión en `/api/version`. Las conversaciones y peticiones se quedan en el equipo y en Ollama.
@@ -26,9 +29,19 @@ Un contexto menor puede reducir la memoria temporal usada por la caché KV. No c
 | Convertir cualquier formato o conectarse a cualquier runtime | No implementado. |
 | Reducción fija de RAM o garantía de que cualquier modelo funcione | No se ofrece ni se puede garantizar. |
 
-## Estado de validación
+## Modelos detectados y pruebas
 
-Comprobación local: Ollama 0.40.13 respondió en `/api/version` y `/api/tags`; la lista contenía cinco modelos instalados. Esto verifica la API de versión y el listado, pero no el chat desde EQ: el navegador de este entorno bloqueó la apertura del archivo local necesaria para completar esa prueba. No se midió RAM ni se validó cada modelo individualmente. Para registrar una combinación como probada, anota: modelo/tag y formato, versión de Ollama, sistema operativo, hardware, perfil y contexto, si pudo cargar y responder, RAM/VRAM antes y después, y calidad de la respuesta.
+Ollama 0.40.13 devolvió cinco modelos mediante `/api/tags`:
+
+| Modelo | Resultado |
+| --- | --- |
+| `olidesarrollador/qubit-code-mini:latest` | Prueba breve en la aplicación oficial de Ollama: respondió `OK`. Falta probar desde EQ. |
+| `olidesarrollador/qubit-nexo-5:latest` | Detectado; conversación no probada. |
+| `olidesarrollador/qubit-nexo-5-code:latest` | Detectado; conversación no probada. |
+| `qwen2.5:1.5b` | Detectado; conversación no probada. |
+| `olidesarrollador/qubit-nexo-mini-6-beta:latest` | Detectado; conversación no probada. |
+
+MiniMax no está instalado en este equipo y no se ha probado. La aplicación de Ollama disponible aquí solo permitió seleccionar `qubit-code-mini`; el navegador bloqueó la apertura del archivo local para probar EQ. La lista detectada no certifica que cada modelo acepte `/api/chat`. No se midió RAM. Para certificar más modelos, prueba la respuesta dentro de EQ y registra modelo/tag, versión de Ollama, sistema, hardware, contexto y resultados.
 
 ## Dirección del proyecto
 
