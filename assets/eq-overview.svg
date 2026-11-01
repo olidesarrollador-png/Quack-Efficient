@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Quack Efficient — vista conceptual</title>
+  <desc id="desc">Ilustración de la futura interfaz de EQ con módulos para runtime, modelo, perfil de eficiencia y mediciones. Una etiqueta aclara que el starter actual solo es un scaffold.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101d2b"/><stop offset="1" stop-color="#193a42"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#061117" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1200" height="675" rx="34" fill="url(#bg)"/>
+  <circle cx="1080" cy="70" r="190" fill="#76d6b0" opacity=".08"/><circle cx="80" cy="610" r="220" fill="#77cbbb" opacity=".07"/>
+  <text x="76" y="96" fill="#91dfbe" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3">EFFICIENT QUACK LABS AI</text>
+  <text x="76" y="166" fill="#f3f7f4" font-family="Segoe UI,Arial,sans-serif" font-size="50" font-weight="700">Quack Efficient <tspan fill="#8fe0bb">(EQ)</tspan></text>
+  <text x="78" y="207" fill="#b8c9c6" font-family="Segoe UI,Arial,sans-serif" font-size="20">Eficiencia de inferencia, con resultados que se pueden medir.</text>
+  <rect x="76" y="250" width="1048" height="330" rx="22" fill="#f4f7f3" filter="url(#shadow)"/>
+  <text x="112" y="300" fill="#14282d" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700">Panel de proyecto</text>
+  <rect x="112" y="322" width="232" height="104" rx="14" fill="#e5f1eb"/><text x="132" y="354" fill="#55716a" font-family="Segoe UI,Arial,sans-serif" font-size="14">RUNTIME</text><text x="132" y="391" fill="#173b36" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700">Adaptadores</text><text x="132" y="414" fill="#617a73" font-family="Segoe UI,Arial,sans-serif" font-size="13">Por integrar</text>
+  <rect x="360" y="322" width="232" height="104" rx="14" fill="#e8eef4"/><text x="380" y="354" fill="#657286" font-family="Segoe UI,Arial,sans-serif" font-size="14">MODELOS</text><text x="380" y="391" fill="#1c3549" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700">Compatibilidad</text><text x="380" y="414" fill="#697b8b" font-family="Segoe UI,Arial,sans-serif" font-size="13">Validada por familia</text>
+  <rect x="608" y="322" width="232" height="104" rx="14" fill="#f4eee0"/><text x="628" y="354" fill="#8a7951" font-family="Segoe UI,Arial,sans-serif" font-size="14">PERFILES</text><text x="628" y="391" fill="#45371d" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700">Memoria · calidad</text><text x="628" y="414" fill="#897b5e" font-family="Segoe UI,Arial,sans-serif" font-size="13">Compromisos claros</text>
+  <rect x="856" y="322" width="232" height="104" rx="14" fill="#eee9f5"/><text x="876" y="354" fill="#74628d" font-family="Segoe UI,Arial,sans-serif" font-size="14">BENCHMARKS</text><text x="876" y="391" fill="#392e4d" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700">Medir y comparar</text><text x="876" y="414" fill="#7c708e" font-family="Segoe UI,Arial,sans-serif" font-size="13">RAM · latencia · calidad</text>
+  <rect x="112" y="449" width="976" height="96" rx="14" fill="#152a31"/>
+  <circle cx="146" cy="482" r="7" fill="#f5be70"/><text x="166" y="487" fill="#f5be70" font-family="Consolas,monospace" font-size="16" font-weight="700">ESTADO ACTUAL</text>
+  <text x="146" y="520" fill="#eef5f1" font-family="Segoe UI,Arial,sans-serif" font-size="18">Starter experimental: CLI informativa, sin optimización de modelos implementada.</text>
+  <text x="78" y="625" fill="#99b2ad" font-family="Segoe UI,Arial,sans-serif" font-size="14">Ilustración conceptual de la dirección del proyecto; no es una captura de una función disponible.</text>
+</svg>
