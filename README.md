@@ -6,6 +6,22 @@
 
 > **Estado actual:** EQ es un starter de diagnóstico. Todavía no comprime modelos ni acelera inferencias. No promete reducir la RAM, funcionar con cualquier modelo ni ofrecer compatibilidad con Ollama. Consulta [qué funciona hoy](docs/estado-y-alcance.md) antes de usarlo.
 
+## Compatibilidad de modelos
+
+> **Estado: ninguno verificado con EQ.** Esta versión no tiene adaptadores para ejecutar o inspeccionar modelos. La tabla describe compatibilidad a través de EQ; no dice si esos modelos funcionan con sus propios programas o runtimes.
+
+| Familia o runtime | Situación en EQ | Qué se ha comprobado |
+| --- | --- | --- |
+| Modelos de texto y LLM | Sin adaptador | Ningún modelo validado |
+| Generación de imágenes | Sin adaptador | Ningún modelo validado |
+| Generación de vídeo | Sin adaptador | Ningún modelo validado |
+| Ollama | Sin adaptador | `eq check --runtime ollama` es solo un mensaje de diagnóstico; no consulta Ollama |
+| Runtime genérico | Sin adaptador | `eq check --runtime generic` es solo un mensaje de diagnóstico |
+
+Por ahora no hay una lista de modelos compatibles con EQ. Tampoco se puede etiquetar un modelo como incompatible: EQ aún no lo prueba. Si compartes los identificadores y versiones exactos de tus modelos, podemos registrarlos como pendientes de evaluación; eso no los convierte en compatibles.
+
+Para declarar compatibilidad habrá que probar cada combinación y publicar el modelo y su versión, formato, runtime y versión, sistema operativo, hardware, resultado de carga y generación, uso de memoria, velocidad y cualquier cambio de calidad.
+
 ## ¿Qué es EQ?
 
 Quack Efficient (EQ) es la base de un proyecto que busca ayudar a medir y, más adelante, reducir el coste de ejecutar modelos de IA. La idea es añadir integraciones específicas para cada motor y formato, perfiles que equilibren memoria, velocidad y calidad, y pruebas reproducibles.
