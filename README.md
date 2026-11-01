@@ -64,7 +64,7 @@ Reducir contexto puede reducir la memoria de trabajo, sobre todo la caché KV, p
 
 La aplicación consulta los modelos y versiones reales que expone el servidor Ollama en el equipo del usuario. La compatibilidad de cada modelo depende de que Ollama lo liste y acepte `/api/chat`. La reducción real de RAM debe medirse en ese equipo antes y después, con el mismo modelo, prompt, contexto y carga.
 
-El entorno de desarrollo donde se preparó este repositorio no pudo conectar con `localhost:11434` ni ejecutar Python; por tanto, aquí no se ha certificado la comunicación con una instancia real de Ollama ni el ahorro en modelos concretos. No marques un modelo como probado sin registrar versión de Ollama, modelo/tag, sistema, hardware, tamaño de contexto y resultados medidos.
+Comprobación realizada en este equipo: Ollama 0.40.13 respondió en `/api/version` y `/api/tags` y devolvió cinco modelos instalados. Esto verifica el servidor y el listado, pero no el envío de una conversación desde la interfaz: el entorno de navegador no permitió abrir el archivo local para completar esa prueba. Tampoco se midió el ahorro de RAM ni se probó cada modelo. No marques un modelo como probado sin registrar versión de Ollama, modelo/tag, sistema, hardware, tamaño de contexto y resultados medidos.
 
 ## Financiación
 
