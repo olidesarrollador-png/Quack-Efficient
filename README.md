@@ -3,6 +3,9 @@
 **Efficient Quack Labs AI · programa local para conversar con modelos servidos por Ollama y ajustar el contexto de inferencia.**
 
 > **Proyecto financiado por Quack Labs y FLX.**
+>
+> # CONTACTO PARA USO COMERCIAL O EMPRESARIAL
+> **Oli desarrollador:** [olidesarrollador@gmail.com](mailto:olidesarrollador@gmail.com)
 
 ![Vista conceptual de Quack Efficient](assets/eq-overview.svg)
 
@@ -18,6 +21,20 @@
 | Qwen, MiniMax y modelos propios importados en Ollama | Aparecerán si están instalados y expuestos por Ollama. EQ no afirma haber probado todas sus variantes. |
 | Modelos de otros runtimes, archivos de modelo que Ollama no puede cargar, APIs remotas ajenas a Ollama y modelos solo de embeddings | No compatibles directamente con esta versión de EQ. |
 | Modelos de Ollama que no admiten chat | Pueden aparecer en la lista, pero el envío puede fallar; EQ informa del error. |
+
+### Modelos detectados en este equipo
+
+Ollama 0.40.13 devolvió estos modelos en `/api/tags`. El estado distingue la detección del modelo de una prueba de conversación dentro de EQ:
+
+| Modelo | Estado comprobado |
+| --- | --- |
+| `olidesarrollador/qubit-code-mini:latest` | Ollama lo seleccionó y respondió `OK` en una conversación breve. Pendiente repetir la prueba desde la interfaz EQ. |
+| `olidesarrollador/qubit-nexo-5:latest` | Detectado por `/api/tags`; conversación individual pendiente. |
+| `olidesarrollador/qubit-nexo-5-code:latest` | Detectado por `/api/tags`; conversación individual pendiente. |
+| `qwen2.5:1.5b` | Detectado por `/api/tags`; conversación individual pendiente. |
+| `olidesarrollador/qubit-nexo-mini-6-beta:latest` | Detectado por `/api/tags`; conversación individual pendiente. |
+
+**MiniMax:** no está instalado en este equipo, así que no se ha probado aquí. Otros modelos Qwen, MiniMax y modelos propios son candidatos si aparecen en Ollama y aceptan `/api/chat`; no se puede afirmar que todas las variantes funcionen sin probarlas.
 
 EQ consulta la API local de Ollama para leer la lista de modelos y enviar los mensajes seleccionados. Las opciones `num_ctx` y `num_predict` ajustan el contexto y el máximo de tokens de salida de la petición. `keep_alive: 0` pide a Ollama descargar el modelo al terminar. Consulta la [API oficial de Ollama](https://docs.ollama.com/api) y la [documentación de parámetros](https://docs.ollama.com/modelfile#valid-parameters-and-values).
 
@@ -64,7 +81,7 @@ Reducir contexto puede reducir la memoria de trabajo, sobre todo la caché KV, p
 
 La aplicación consulta los modelos y versiones reales que expone el servidor Ollama en el equipo del usuario. La compatibilidad de cada modelo depende de que Ollama lo liste y acepte `/api/chat`. La reducción real de RAM debe medirse en ese equipo antes y después, con el mismo modelo, prompt, contexto y carga.
 
-Comprobación realizada en este equipo: Ollama 0.40.13 respondió en `/api/version` y `/api/tags` y devolvió cinco modelos instalados. Esto verifica el servidor y el listado, pero no el envío de una conversación desde la interfaz: el entorno de navegador no permitió abrir el archivo local para completar esa prueba. Tampoco se midió el ahorro de RAM ni se probó cada modelo. No marques un modelo como probado sin registrar versión de Ollama, modelo/tag, sistema, hardware, tamaño de contexto y resultados medidos.
+Comprobación realizada: Ollama 0.40.13 respondió en `/api/version` y `/api/tags` y devolvió cinco modelos. En la aplicación oficial de Ollama, `olidesarrollador/qubit-code-mini:latest` generó `OK` ante una petición breve. No se pudo seleccionar los otros cuatro en esa interfaz y no se probó el envío desde EQ: el navegador de este entorno bloqueó abrir el archivo local. Tampoco se midió el ahorro de RAM. La compatibilidad de API de un modelo no certifica su comportamiento desde EQ ni el rendimiento en otro equipo.
 
 ## Financiación
 
