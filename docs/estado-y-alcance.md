@@ -28,7 +28,7 @@ Un contexto menor puede reducir la memoria temporal usada por la caché KV. No c
 
 ## Estado de validación
 
-El entorno de desarrollo usado para preparar este repositorio no pudo acceder a `localhost:11434` y no pudo ejecutar Python. La interfaz debe verificarse con cada instalación real de Ollama. Para registrar una combinación como probada, anota: modelo/tag y formato, versión de Ollama, sistema operativo, hardware, perfil y contexto, si pudo cargar y responder, RAM/VRAM antes y después, y calidad de la respuesta.
+Comprobación local: Ollama 0.40.13 respondió en `/api/version` y `/api/tags`; la lista contenía cinco modelos instalados. Esto verifica la API de versión y el listado, pero no el chat desde EQ: el navegador de este entorno bloqueó la apertura del archivo local necesaria para completar esa prueba. No se midió RAM ni se validó cada modelo individualmente. Para registrar una combinación como probada, anota: modelo/tag y formato, versión de Ollama, sistema operativo, hardware, perfil y contexto, si pudo cargar y responder, RAM/VRAM antes y después, y calidad de la respuesta.
 
 ## Dirección del proyecto
 
