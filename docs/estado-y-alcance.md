@@ -2,12 +2,26 @@
 
 ## Lo que incluye esta versión
 
-El ZIP de inicio contiene un paquete Python instalable y una CLI mínima:
+El starter contiene un paquete Python instalable y una CLI mínima:
 
 - `eq info` presenta la versión, el sistema operativo y el estado experimental.
 - `eq check --runtime ollama` y `eq check --runtime generic` explican que no hay adaptadores disponibles. El comando termina con código 2.
 
-La comprobación no se conecta a un runtime. No se incluyen pesos, modelos, benchmark ni servicios externos.
+La comprobación no se conecta a un runtime. No se incluyen pesos, modelos, benchmarks ni servicios externos.
+
+## Compatibilidad de modelos
+
+**No hay ningún modelo validado ni compatible a través de EQ en esta versión**, porque todavía no existe un adaptador de inferencia. Esto no determina si un modelo funciona con Ollama, otro runtime o su aplicación original.
+
+| Familia o runtime | Integración en EQ | Estado |
+| --- | --- | --- |
+| Texto / LLM | No implementada | Sin modelos probados |
+| Imagen | No implementada | Sin modelos probados |
+| Vídeo | No implementada | Sin modelos probados |
+| Ollama | No implementada | El comando `eq check` no se conecta a Ollama |
+| Genérico | No implementada | El comando `eq check` solo muestra un diagnóstico |
+
+La tabla no afirma que un modelo sea incompatible: indica que EQ aún no puede evaluarlo. Para registrar una comprobación futura hacen falta el identificador y versión del modelo, formato, runtime y versión, sistema operativo, hardware y resultados de carga, generación, memoria, velocidad y calidad.
 
 ## Lo que aún no hace
 
